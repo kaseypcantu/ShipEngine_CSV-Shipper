@@ -1,0 +1,27 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+devtools = "*"
+flake8 = "*"
+black = "*"
+pytest = "*"
+
+[packages]
+flask = "*"
+flask-sqlalchemy = "*"
+sqlalchemy = "*"
+python-dotenv = "*"
+requests = "*"
+boto3 = "*"
+graphene = "*"
+
+[scripts]
+black = "black --verbose --target-version py38 . tests"
+flake8 = "flake8 Kyral"
+test = "python3 -m unittest discover tests *.py"
+
+[requires]
+python_version = "3.8"
