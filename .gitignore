@@ -6,6 +6,9 @@ __pycache__/
 # Intellij IDE
 .idea/
 
+# HTTP request files
+*.http
+
 # C extensions
 *.so
 
