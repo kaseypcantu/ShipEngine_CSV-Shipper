@@ -8,6 +8,7 @@ devtools = "*"
 flake8 = "*"
 black = "*"
 pytest = "*"
+pylint = "*"
 
 [packages]
 flask = "*"
@@ -17,6 +18,7 @@ python-dotenv = "*"
 requests = "*"
 boto3 = "*"
 graphene = "*"
+psycopg2-binary = "*"
 
 [scripts]
 black = "black --verbose --target-version py38 . tests"
