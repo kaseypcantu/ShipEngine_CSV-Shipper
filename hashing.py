@@ -7,23 +7,25 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def encrypt(pw: bytes) -> str:
-    """Takes in a string to be encrypted.
+def encrypt(p: bytes) -> str:
+    """
+    Takes in a string to be encrypted.
 
     Args:
-        pw (bytes): A string to be encrypted (must be bytes).
+        p (bytes): A string to be encrypted (must be bytes).
 
     Returns:
         An encrypted hashed string.
     """
     salt = bytes(os.getenv('APP_SALT'), encoding='utf-8')
     iterations = 300000
-    dk = hashlib.pbkdf2_hmac('sha512', pw, salt=salt, iterations=iterations)
-    return dk.hex()
+    d = hashlib.pbkdf2_hmac('sha512', p, salt=salt, iterations=iterations)
+    return d.hex()
 
 
 def compare_hash(digest_a: str, digest_b: str) -> bool:
-    """A utility to compare two password digests in a secure way that thwarts
+    """
+    A utility to compare two password digests in a secure way that thwarts
     timing attacks.
 
     Args:
