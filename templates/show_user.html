@@ -3,15 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>{{ user.username }}</title>
+    <title>{{ user.username|e }}</title>
 </head>
 
 <body>
 
-    <h1>Hello {{ user.first_name }} {{ user.last_name }}</h1>
-    <h3>Username: {{ user.username }}</h3>
-    <h3>Email: {{ user.email }}</h3>
-    <h3>Account created: {{ user.created_at }}</h3>
+    <h1>Hello {{ user.first_name|e }} {{ user.last_name|e }}</h1>
+    <h3>Username: {{ user.username|e }}</h3>
+    <h3>Email: {{ user.email|e }}</h3>
+    <h3>Account created: {{ user.created_at|e }}</h3>
 
 </body>
 
