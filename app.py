@@ -1,11 +1,12 @@
 import os
 from dataclasses import dataclass
 
+from dotenv import load_dotenv
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import func
-from dotenv import load_dotenv
 from markupsafe import escape
+from sqlalchemy import func
+
 # from typing import Optional, List, Dict
 
 load_dotenv()
@@ -52,22 +53,26 @@ class User(db.Model):
     #     self.username = username
     #     self.pw_hash = pw_hash
 
-    @property
     def __repr__(self):
         return f'<User {self.username}>'
 
 
 @app.route('/')
 def hello_world():
-    return 'Hello World!'
+    return render_template('login.html')
 
 
-@app.route("/user/<string:username>", methods=['GET'])
+@app.route('/user/<string:username>', methods=['GET'])
 def show_user(username):
     user = User.query.filter_by(username=username).first_or_404(
-        description=f"There is no data with the username: {escape(username)}"
+        description=f'There is no data with the username: {escape(username)}'
     )
-    return render_template("show_user.html", user=user)
+    return render_template('show_user.html', user=user)
+
+
+@app.teardown_appcontext
+def shutdown_session(exception=None):
+    db_session.remove()
 
 
 if __name__ == '__main__':
