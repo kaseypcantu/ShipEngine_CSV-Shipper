@@ -19,6 +19,8 @@ requests = "*"
 boto3 = "*"
 graphene = "*"
 psycopg2-binary = "*"
+flask-wtf = "*"
+wtforms = "*"
 
 [scripts]
 black = "black --verbose --target-version py38 . tests"
