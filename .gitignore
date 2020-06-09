@@ -146,3 +146,6 @@ cython_debug/
 
 # Local bash scripts
 bash_scripts/
+
+# Local http file .env file
+/http-client.private.env.json
