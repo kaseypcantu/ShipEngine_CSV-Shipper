@@ -17,9 +17,9 @@ def encrypt(p: bytes) -> str:
     Returns:
         An encrypted hashed string.
     """
-    salt = bytes(os.getenv('APP_SALT'), encoding='utf-8')
+    salt = bytes(os.getenv("APP_SALT"), encoding="utf-8")
     iterations = 300000
-    d = hashlib.pbkdf2_hmac('sha512', p, salt=salt, iterations=iterations)
+    d = hashlib.pbkdf2_hmac("sha512", p, salt=salt, iterations=iterations)
     return d.hex()
 
 
