@@ -18,12 +18,23 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css"
           integrity="sha256-qS+snwBgqr+iFVpBB58C9UCxKFhyL03YHpZfdNUhSEw=" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for("static", filename="css/style.css") }}">
 
 </head>
 <body>
 
-{% include 'navbar.html' %}
+{% include "navbar.html" %}
+
+{% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="notification is-{{ category }}">
+            <button class="delete"></button>
+            {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
 
 {% block content %}
 {% endblock content %}
@@ -31,7 +42,7 @@
 <script src="https://code.jquery.com/jquery-3.5.0.min.js"
         integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 
-<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+<script src="{{ url_for("static", filename="js/app.js") }}"></script>
 
 </body>
 </html>
