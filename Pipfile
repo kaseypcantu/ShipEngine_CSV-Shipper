@@ -21,6 +21,7 @@ graphene = "*"
 psycopg2-binary = "*"
 flask-wtf = "*"
 wtforms = "*"
+email-validator = "*"
 
 [scripts]
 black = "black --verbose --target-version py38 . tests"
