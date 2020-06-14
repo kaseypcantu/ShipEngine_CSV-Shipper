@@ -22,6 +22,7 @@ psycopg2-binary = "*"
 flask-wtf = "*"
 wtforms = "*"
 email-validator = "*"
+flask-bcrypt = "*"
 
 [scripts]
 flake8 = "flake8 ."
