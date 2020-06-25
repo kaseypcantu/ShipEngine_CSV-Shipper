@@ -35,6 +35,11 @@ def show_user(username):
     return render_template("show_user.html", user=user)
 
 
+@app.route("/csv_shipper-webhook", methods=["POST"])
+def consume_webhook():
+    pass
+
+
 @app.teardown_appcontext
 def shutdown_session(exception=None):
     db_session.remove()
