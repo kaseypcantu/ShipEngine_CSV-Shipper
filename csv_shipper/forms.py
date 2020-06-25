@@ -7,7 +7,7 @@ from wtforms import (
     IntegerField,
     SelectField
 )
-from wtforms.fields.html5 import EmailField
+from wtforms.fields.html5 import EmailField, SearchField
 from wtforms.validators import (
     InputRequired,
     DataRequired,
@@ -114,4 +114,11 @@ class ShippingAddressForm(FlaskForm):
                                                       DataRequired(),
                                                       Length(min=1, max=2)])
     address_residential_indicator = SelectField('Address Residential Indicator',
-                                                choices=[("yes", "no", "unknown")])
+                                                choices=["unknown", "yes", "no"])
+
+
+class SearchBar(FlaskForm):
+    search = SearchField()
+
+
+# class Shipment(FlaskForm):
