@@ -23,11 +23,13 @@ flask-wtf = "*"
 wtforms = "*"
 email-validator = "*"
 flask-bcrypt = "*"
+flask-login = "*"
+flask-mail = "*"
 
 [scripts]
 flake8 = "flake8 ."
 test = "python3 -m unittest discover tests *.py"
-black = "black --verbose --target-version py38 . tests"
+black = "black --verbose --target-version py38 csv_shipper tests"
 
 [requires]
 python_version = "3.8"

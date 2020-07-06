@@ -1,9 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
 
-    <h1>You are logged in to the User Dashboard! Welcome to Flask!</h1>
-    <button class="button is-warning">
-        Sign Out
-    </button>
+    <h1>You are logged in to the User Dashboard! Welcome <strong>{{ current_user.username }}</strong>!</h1>
 
 {% endblock %}

@@ -1,0 +1,8 @@
+.mt-5 {
+    margin-top: .5em;
+}
+
+::selection {
+    background: #F7E954;
+    color: black;
+}

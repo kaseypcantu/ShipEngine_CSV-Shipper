@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block content %}
+    <section class="section">
+        <div class="container">
+            <div class="columns is-mobile is-centered">
+                <div class="column is-half">
+                    <form action="" method="POST">
+                        <h1 style="margin-bottom: 50px; margin-top: 100px;" class="is-size-1 has-text-centered">Reset
+                            Password</h1>
+
+                        {{ form.hidden_tag() }}
+                        <div class="field-body">
+                            <div class="field">
+                                {{ form.password.label(class="label is-small") }}
+
+                                {% if form.password.errors %}
+                                    {{ form.password(class="input control is-danger") }}
+                                    {% for error in form.password.errors %}
+                                        <p class="help is-danger">{{ error }}</p>
+                                    {% endfor %}
+                                {% else %}
+                                    {{ form.password(class="input control") }}
+                                {% endif %}
+                            </div>
+
+                            <div class="field">
+                                {{ form.confirm_password.label(class="label is-small") }}
+
+                                {% if form.confirm_password.errors %}
+                                    {{ form.confirm_password(class="input control is-danger") }}
+                                    {% for error in form.confirm_password.errors %}
+                                        <p class="help is-danger">{{ error }}</p>
+                                    {% endfor %}
+                                {% else %}
+                                    {{ form.confirm_password(class="input control") }}
+                                {% endif %}
+                            </div>
+
+
+                            <div class="field is-grouped">
+                                <div class="control">
+                                    {{ form.login(class="button is-primary") }}
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}
