@@ -5,14 +5,14 @@ services:
   db:
     image: postgres:12.3-alpine
     volumes:
-    - $PWD/pg_data:/var/lib/postgresql/data
+    - $PWD/postgres_data:/var/lib/postgresql/data
     restart: always
     ports:
     - 5432:5432
     environment:
-      POSTGRES_USER: hisoka
-      POSTGRES_PASSWORD: d2863a71c80a8037b46f7cc6
-      POSTGRES_DB: flask_db
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
 
   redis:
     image: redis:6.0.5-alpine
@@ -33,9 +33,9 @@ services:
     ports:
       - 5050:5050
     environment:
-      PGADMIN_LISTEN_PORT: 5050
-      PGADMIN_DEFAULT_EMAIL: kaseypaulcantu@gmail.com
-      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_LISTEN_PORT: ${PGADMIN_PORT}
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
 
   adminer:
     image: adminer
