@@ -1,0 +1,46 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres:12.3-alpine
+    volumes:
+    - $PWD/pg_data:/var/lib/postgresql/data
+    restart: always
+    ports:
+    - 5432:5432
+    environment:
+      POSTGRES_USER: hisoka
+      POSTGRES_PASSWORD: d2863a71c80a8037b46f7cc6
+      POSTGRES_DB: flask_db
+
+  redis:
+    image: redis:6.0.5-alpine
+    command: redis-server --requirepass <secretPassword>
+    ports:
+    - 6379:6379
+    volumes:
+    - $PWD/redis-data:/var/lib/redis
+    - $PWD/redis.conf:/user/local/etc/redis/redis.conf
+    environment:
+      REDIS_REPLICATION_MODE: master
+
+  pgadmin:
+    image:  dpage/pgadmin4:4.23
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - 5050:5050
+    environment:
+      PGADMIN_LISTEN_PORT: 5050
+      PGADMIN_DEFAULT_EMAIL: kaseypaulcantu@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      ADMINER_DESIGN: pappu687  # pepa-linha / lucas-sandery / pappu687
