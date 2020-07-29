@@ -1,6 +1,6 @@
-from flask import render_template, Blueprint
+from flask import render_template, Blueprint, current_app
 
-from csv_shipper import app, db_session
+from csv_shipper import db_session
 
 main = Blueprint("main", __name__)
 
@@ -13,8 +13,3 @@ def home():
 @main.route("/csv_shipper-webhook", methods=["POST"])
 def consume_webhook():
     pass
-
-
-@app.teardown_appcontext
-def shutdown_session(exception=None):
-    db_session.remove()
