@@ -27,6 +27,8 @@ bcrypt = "*"
 psycopg2-binary = "*"
 uwsgi = "*"
 pyngrok = "*"
+flask-migrate = "*"
+flask-debugtoolbar = "*"
 
 [scripts]
 flake8 = "flake8 ."
