@@ -149,3 +149,9 @@ bash_scripts/
 
 # Local http file .env file
 /http-client.private.env.json
+
+### Local Files
+redis-data/
+redis.conf/
+pg_data/
+postgres_data/
