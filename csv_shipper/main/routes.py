@@ -1,6 +1,4 @@
-from flask import render_template, Blueprint, current_app
-
-from csv_shipper import db_session
+from flask import render_template, Blueprint
 
 main = Blueprint("main", __name__)
 
