@@ -6,7 +6,6 @@ verify_ssl = true
 [dev-packages]
 devtools = "*"
 flake8 = "*"
-black = "*"
 pytest = "*"
 pylint = "*"
 
@@ -18,18 +17,22 @@ python-dotenv = "*"
 requests = "*"
 boto3 = "*"
 graphene = "*"
-psycopg2-binary = "*"
 flask-wtf = "*"
 wtforms = "*"
 email-validator = "*"
 flask-bcrypt = "*"
 flask-login = "*"
 flask-mail = "*"
+bcrypt = "*"
+psycopg2-binary = "*"
+uwsgi = "*"
+pyngrok = "*"
 
 [scripts]
 flake8 = "flake8 ."
 test = "python3 -m unittest discover tests *.py"
 black = "black --verbose --target-version py38 csv_shipper tests"
+lift_off = "python run.py"
 
 [requires]
 python_version = "3.8"
